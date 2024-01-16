@@ -1,11 +1,11 @@
 #dirs
-
 bin/
 build/
 cache/
 .vscode/
 .vs/
 .idea/
+
 #files
 *.so
 *.dll
