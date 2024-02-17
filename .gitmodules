@@ -1,0 +1,8 @@
+[submodule "External/pybind11"]
+	path = External/pybind11
+	url = https://github.com/pybind/pybind11.git
+	branch = stable
+[submodule "External/imgui"]
+	path = External/imgui
+	url = https://github.com/ocornut/imgui.git
+	branch = docking
