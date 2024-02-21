@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 #dependencies
 add_subdirectory(External/pybind11)
+set(TINYXML2_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/External/tinyxml2)
 
 #components
 add_subdirectory(Core)
