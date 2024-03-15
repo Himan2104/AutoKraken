@@ -20,7 +20,30 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-int main()
+//
+// Created by himan on 25/02/2024.
+//
+
+#ifndef AUTOKRAKEN_UIDPROVIDER_HPP
+#define AUTOKRAKEN_UIDPROVIDER_HPP
+
+#include<Definitions.hpp>
+#include<set>
+#include<string>
+
+namespace ak
 {
-    return 0;
+    class UIDProvider
+    {
+    public:
+        static UID GetNewUID();
+        static std::string GetSerializedUIDPState();
+        static void LoadUIDPStateAndInitialize();
+
+    private:
+        static UID _nextUID;
+        static bool _initialized;
+        static std::set<UID> _freeIDs;
+    };
 }
+#endif //AUTOKRAKEN_UIDPROVIDER_HPP

@@ -20,7 +20,11 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-int main()
-{
-    return 0;
-}
+#ifndef AUTOKRAKEN_XMLPARSER_HPP
+#define AUTOKRAKEN_XMLPARSER_HPP
+
+#include<tinyxml2.h>
+
+namespace xml = tinyxml2; //aliasing it 'cause I fucking hate writing long ass namespaces
+
+#endif //AUTOKRAKEN_XMLPARSER_HPP

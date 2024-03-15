@@ -20,7 +20,41 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-int main()
+//
+// Created by himan on 22/02/2024.
+//
+
+#include<Project.hpp>
+
+#include<fstream>
+#include<algorithm>
+
+ak::Project::Project() = default;
+
+ak::AKResult ak::Project::AddNewScript(const std::string& filename)
 {
-    return 0;
+    std::fstream stream;
+    stream.open(filename);
+
+    if(!stream.is_open())
+    {
+        return AKResult::FILE_NOT_FOUND;
+    }
+
+    //_scripts.Add(ScriptItem())
+
+    return AKResult::SUCCESS;
+
+}
+
+ak::AKResult ak::Project::AddScriptToPlaylist(ak::UID scriptID, ak::UID playlistID)
+{
+    if(auto playlist = std::find_if(_playlists.begin(), _playlists.end(),
+                                    [&playlistID](const Playlist& pl){ return pl._id == playlistID;});
+            playlist != _playlists.end())
+    {
+        playlist->_scripts.push_back(scriptID);
+        return AKResult::SUCCESS;
+    }
+    return ak::AKResult::UNEXPECTED_NULLPTR;
 }

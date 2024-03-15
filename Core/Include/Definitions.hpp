@@ -20,7 +20,22 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-int main()
+#ifndef AUTOKRAKEN_DEFINITIONS_HPP
+#define AUTOKRAKEN_DEFINITIONS_HPP
+
+#include<cinttypes>
+
+namespace ak
 {
-    return 0;
+    typedef uint64_t UID;
+
+    enum class AKResult : uint8_t
+    {
+        SUCCESS,
+        UNKOWN_FAILURE,
+        FILE_NOT_FOUND,
+        UNEXPECTED_NULLPTR
+    };
 }
+
+#endif //AUTOKRAKEN_DEFINITIONS_HPP

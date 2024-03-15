@@ -20,7 +20,33 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-int main()
+//
+// Created by himan on 25/02/2024.
+//
+
+#include<UIDProvider.hpp>
+
+ak::UID ak::UIDProvider::GetNewUID()
 {
-    return 0;
+    if(!_initialized)
+    {
+        LoadUIDPStateAndInitialize();
+    }
+
+    return _nextUID;
 }
+
+std::string ak::UIDProvider::GetSerializedUIDPState()
+{
+    return std::string();
+}
+
+void ak::UIDProvider::LoadUIDPStateAndInitialize()
+{
+    _nextUID = 0;
+    _initialized = true;
+}
+
+ak::UID ak::UIDProvider::_nextUID = 0;
+
+bool ak::UIDProvider::_initialized = false;

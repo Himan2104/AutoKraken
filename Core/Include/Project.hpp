@@ -20,7 +20,60 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-int main()
+//
+// Created by himan on 22/02/2024.
+//
+
+#ifndef AUTOKRAKEN_PROJECT_HPP
+#define AUTOKRAKEN_PROJECT_HPP
+
+#include<Definitions.hpp>
+#include<string>
+#include<vector>
+
+namespace ak
 {
-    return 0;
+    class Project
+    {
+        struct ScriptItem
+        {
+            UID _id;
+            std::string _filename;
+        };
+
+        struct Playlist
+        {
+            UID _id;
+            std::string _name;
+            std::vector<UID> _scripts;
+        };
+
+    public:
+        Project();
+
+        [[nodiscard]]
+        const std::vector<ScriptItem>& GetAllScripts() const
+        {
+            return _scripts;
+        }
+
+        [[nodiscard]]
+        const std::vector<Playlist>& GetAllPlaylists() const
+        {
+            return _playlists;
+        }
+
+        AKResult AddNewScript(const std::string& filename);
+
+        AKResult AddScriptToPlaylist(UID scriptID, UID playlistID);
+
+
+    private:
+        std::vector<ScriptItem> _scripts;
+        std::vector<Playlist> _playlists;
+
+    };
 }
+
+
+#endif //AUTOKRAKEN_PROJECT_HPP
